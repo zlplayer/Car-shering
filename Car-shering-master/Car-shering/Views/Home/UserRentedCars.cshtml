@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Car_shering.Dtos.CarDto>
+
+@{
+    ViewData["Title"] = "UserRentedCars";
+}
+
+<h1>UserRentedCars</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationNumber)
+                </td>
+                <td>
+                    <a asp-action="UpdateCarAddress" asp-route-id="@item.Id">Edit Adres</a> |
+                    <a asp-action="DetailsRentedCar" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="ReturnCar" asp-route-id="@item.Id">Zwróc samochód</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

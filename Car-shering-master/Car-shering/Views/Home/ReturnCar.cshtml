@@ -1,0 +1,18 @@
+﻿@model Car_shering.Dtos.RentalDto
+
+@{
+    ViewData["Title"] = "ReturnCar";
+}
+
+<h1>ReturnCar</h1>
+
+<h3>Are you sure you want to return car?</h3>
+<div>
+    
+    
+    <form asp-action="ReturnCar">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Yes" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
