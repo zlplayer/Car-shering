@@ -1,0 +1,41 @@
+﻿@model Gateway.Storage.Dtos.PriorityTicketDto
+
+@{
+    ViewData["Title"] = "Zmień priorytet";
+}
+
+
+<div class="container mt-4">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="ChangePriority">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Nazwa</label>
+                    <select asp-for="Name" class="form-control">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Urgent">Urgent</option>
+                    </select>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Zapisz" class="btn btn-primary" />
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <a class="btn btn-secondary" asp-action="Index">Cofnij</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
